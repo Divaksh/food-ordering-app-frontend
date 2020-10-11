@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import FastfoodIcon from "@material-ui/icons/Fastfood";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
 import TextField from "@material-ui/core/TextField";
 import {
   withStyles,
