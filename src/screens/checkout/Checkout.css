@@ -1,0 +1,26 @@
+.displaybolck {
+  display: block;
+}
+
+.displaynone {
+  display: none;
+}
+
+.iconcolorgreen {
+  color: #2e8b57;
+}
+.iconcolordefault {
+  color: rgba(0, 0, 0, 0.54);
+}
+.veg {
+  color: #599a5a;
+}
+.nonveg {
+  color: #be4b47;
+}
+.MuiFormHelperText-root {
+  color: red !important;
+}
+.MuiMenu-paper {
+  max-height: 160px !important;
+}
