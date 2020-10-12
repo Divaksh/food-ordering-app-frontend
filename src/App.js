@@ -12,15 +12,14 @@ class App extends Component {
     super();
     this.state = { searchtext: "" };
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    console.log = console.warn = console.error = () => {};
   }
   handleSearchChange(srchtxt) {
     this.setState({ searchtext: srchtxt }, this.filterCards);
   }
   render() {
     return (
-     
       <BrowserRouter>
-       { /* Router controller for the application */}
         <div>
           <Route path="/">
             <Header searchhandler={this.handleSearchChange}></Header>
@@ -30,15 +29,29 @@ class App extends Component {
               <Home searchtxt={this.state.searchtext} />
             </Route>
             { /* if url is /details/restaurantid then load Details component with restaurant details*/}
-            <Route path="/details/:restaurantid" exact component={Details} />
+            <Route
+              path="/details/:restaurantid"
+              exact
+              component={(props) => <Details {...props} />}
+            />
             { /* if url is /checkout then load Checkout component */}
-            <Route path="/checkout" component={Checkout} />
+            <Route
+              path="/checkout"
+              component={(props) => <Checkout {...props} />}
+            />
             { /* if url is /details then load Home component */}
-            <Route path="/details" exact component={Home} />
+            <Route
+              path="/details"
+              exact
+              component={(props) => <Home {...props} />}
+            />
             { /* if url is /profile then load Profile component */}
-            <Route path="/profile" component={Profile} />
+            <Route
+              path="/profile"
+              component={(props) => <Profile {...props} />}
+            />
             { /* if url is /home then load Home component */}
-            <Route path="/home" component={Home} />
+            <Route path="/home" component={(props) => <Home {...props} />} />
           </Switch>
         </div>
       </BrowserRouter>
