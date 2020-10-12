@@ -1,0 +1,19 @@
+.displaybolck {
+  display: block;
+}
+
+.displaynone {
+  display: none !important;
+}
+
+.green {
+  color: #2e8b57;
+}
+
+.errortext {
+  color: #f44336;
+  font-size: 0.75rem;
+}
+p.Mui-required {
+  color: red !important;
+}
