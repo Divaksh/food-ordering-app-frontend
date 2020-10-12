@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import Snackbar from "@material-ui/core/Snackbar";
 import { constants } from "../../common/util";
 
-//Styles
+//Styles for the header component
 const styles = (theme) =>
   createStyles({
     root: {
@@ -107,6 +107,7 @@ const styles = (theme) =>
     popover: { marginTop: theme.spacing(5) },
   });
 
+// Header component
 class Header extends Component {
   constructor(props) {
     super();
@@ -131,6 +132,7 @@ class Header extends Component {
       msg: "",
       userdetails: null,
     };
+    // Binding all handlers
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleTabChange = this.handleTabChange.bind(this);
@@ -342,11 +344,11 @@ class Header extends Component {
   handleCloseMenu() {
     this.setState({ anchorEl: null, isopen: false });
   }
-  //Metod to handle menu
+  //Method to handle menu
   handleMenu(e) {
     this.setState({ anchorEl: e.currentTarget, isopen: true });
   }
-  //Metod to handle logout
+  //Method to handle logout
   handleLogout() {
     const requestOptions = {
       method: "POST",

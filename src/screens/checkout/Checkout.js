@@ -41,6 +41,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import Snackbar from "@material-ui/core/Snackbar";
 import { Redirect } from "react-router";
 
+// create styles for the checkout compoenent
 const styles = (theme) =>
   createStyles({
     root: {
@@ -83,7 +84,7 @@ const styles = (theme) =>
       },
     },
   });
-
+// Checkout component
 class Checkout extends Component {
   constructor(props) {
     console.log(props);
@@ -110,6 +111,7 @@ class Checkout extends Component {
       disableplaceorderbtn: false,
       isLoggedIn: true,
     };
+    //binding all handlers
     this.handleBack = this.handleBack.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleNext = this.handleNext.bind(this);
@@ -145,6 +147,7 @@ class Checkout extends Component {
   closeMsg() {
     setTimeout(() => this.setState({ showmsg: false }), 5000);
   }
+  // Gets the all address list
   getAllAddress() {
     const requestOptions = {
       method: "GET",
@@ -157,6 +160,7 @@ class Checkout extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ addresses: data.addresses }));
   }
+  // Gets the all states list
   getAllStates() {
     const requestOptions = {
       method: "GET",
@@ -168,6 +172,7 @@ class Checkout extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ states: data.states }));
   }
+  // Gets the all available payment methods
   getAllPaymentMethods() {
     const requestOptions = {
       method: "GET",
@@ -179,6 +184,7 @@ class Checkout extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ paymentmethods: data.paymentMethods }));
   }
+  // handler for the Next button
   handleNext() {
     if (this.state.tabNo === 0 && this.state.selectedtile !== "") {
       this.setState({
@@ -186,11 +192,13 @@ class Checkout extends Component {
       });
     }
   }
+  // handler for the Back button
   handleBack() {
     this.setState({
       activeStep: this.state.activeStep - 1,
     });
   }
+  // Handler for the reset button
   handleReset() {
     this.setState({
       activeStep: 0,
@@ -217,6 +225,7 @@ class Checkout extends Component {
   handleStateChange(e) {
     this.setState({ adstate: e.target.value });
   }
+  // Form submit handler
   handleFormSubmit() {
     if (this.state.flatbuildingname == null) {
       this.setState({ flatbuildingname: "" });
@@ -293,6 +302,7 @@ class Checkout extends Component {
   pmHandler(e) {
     this.setState({ selectedpaymentmethod: e.target.value });
   }
+  // Handler for the checkout
   checkoutHandler() {
     if (
       this.state.selectedpaymentmethod !== "" &&

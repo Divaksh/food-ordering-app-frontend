@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./common/header/Header";
 import Home from "./screens/home/Home.js";
 
+// App component for controlling all routes
 class App extends Component {
   constructor(props) {
     super();
@@ -17,7 +18,9 @@ class App extends Component {
   }
   render() {
     return (
+     
       <BrowserRouter>
+       { /* Router controller for the application */}
         <div>
           <Route path="/">
             <Header searchhandler={this.handleSearchChange}></Header>
@@ -26,10 +29,15 @@ class App extends Component {
             <Route path="/" exact>
               <Home searchtxt={this.state.searchtext} />
             </Route>
+            { /* if url is /details/restaurantid then load Details component with restaurant details*/}
             <Route path="/details/:restaurantid" exact component={Details} />
+            { /* if url is /checkout then load Checkout component */}
             <Route path="/checkout" component={Checkout} />
+            { /* if url is /details then load Home component */}
             <Route path="/details" exact component={Home} />
+            { /* if url is /profile then load Profile component */}
             <Route path="/profile" component={Profile} />
+            { /* if url is /home then load Home component */}
             <Route path="/home" component={Home} />
           </Switch>
         </div>

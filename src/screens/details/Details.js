@@ -24,6 +24,7 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import { constants } from "../../common/util";
 
+// create styles for the details compoenent
 const styles = (theme) =>
   createStyles({
     restdetailscont: {
@@ -61,12 +62,14 @@ const styles = (theme) =>
     },
   });
 
+  // Details component
 class Details extends Component {
   constructor(props) {
     super();
 
     this.state = {
       restdetails: {},
+      // Menu for the restaurant
       menu: [
         {
           cuisineid: "1",
@@ -110,6 +113,7 @@ class Details extends Component {
     this.closeMsg = this.closeMsg.bind(this);
     this.checkoutHandler = this.checkoutHandler.bind(this);
   }
+  // Item cart handler to add item to the cart
   handleAddItemToCart(e) {
     let dataitemid = e.currentTarget.getAttribute("data-itemid");
     let datacuisineid = e.currentTarget.getAttribute("data-cuisineid");
@@ -156,6 +160,7 @@ class Details extends Component {
   setIsLoaded() {
     this.setState({ isLoaded: true });
   }
+  // Handler for the adding the item
   addItemHandler(e) {
     let dataitemid = e.currentTarget.getAttribute("data-itemid");
 
@@ -167,6 +172,7 @@ class Details extends Component {
     this.setState({ showmsg: true, msg: "Item quantity increased by 1!" });
     setTimeout(this.closeMsg, 5000);
   }
+  // handler to remove the item
   substractItemHandler(e) {
     let dataitemid = e.currentTarget.getAttribute("data-itemid");
     let dataitemquantity = e.currentTarget.getAttribute("data-quantity");
@@ -187,6 +193,7 @@ class Details extends Component {
   closeMsg() {
     setTimeout(() => this.setState({ showmsg: false }), 5000);
   }
+  // Handler for the checkout process
   checkoutHandler() {
     if (sessionStorage.getItem("accesstoken")) {
       if (this.state.cart.length !== 0) {

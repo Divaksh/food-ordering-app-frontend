@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { constants } from "../../common/util";
 
+// create styles for the home compoenent
 const styles = (theme) =>
   createStyles({
     flexgrow: {
@@ -46,6 +47,7 @@ const styles = (theme) =>
     },
   });
 
+// Home component
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -63,11 +65,13 @@ class Home extends Component {
   componentDidMount() {
     this.getAllRestaurants();
   }
+  // This method to get list of the all restaurants
   getAllRestaurants() {
     fetch(constants.baseurl + "/api/restaurant")
       .then((response) => response.json())
       .then((data) => this.setState({ carddata: data.restaurants }));
   }
+  // filter the cards based on the input string in search field
   filterCards() {
     if (this.state.searchtext.trim() !== "") {
       fetch(
