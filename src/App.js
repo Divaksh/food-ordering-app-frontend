@@ -23,6 +23,8 @@ class App extends Component {
             <Route path="/" exact>
               <Home searchtxt={this.state.searchtext} />
             </Route>
+            <Route path="/details" exact component={Home} />
+            <Route path="/profile" component={Profile} />
             <Route path="/home" component={Home} />
           </Switch>
         </div>
